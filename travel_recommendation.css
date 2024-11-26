@@ -1,0 +1,98 @@
+/*Background Image*/
+body,
+html {
+    height: 100%;
+}
+
+#bg {
+    /* The image used */
+    background-image:
+
+        url("background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*Nav Bar*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: bisque;
+    padding: 10px;
+
+}
+
+#nav a:hover {
+    color: aqua;
+}
+
+#nav2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#nav a {
+    padding: 5px;
+}
+
+#intro {
+    font-size: 40px;
+}
+
+/*Homepage Text*/
+#homepage {
+    display: flex;
+    flex-direction: column;
+
+    height: 90%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 30px;
+    padding-left: 300px;
+
+
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-shadow: rgb(0, 0, 0);
+    text-decoration: double;
+
+}
+
+#heading {
+    font-size: 40px;
+    display: flex;
+
+
+}
+
+
+#book {
+    padding: 5px 1px;
+    background-color: #8b1a45;
+    color: white;
+    width: 80px;
+    cursor: pointer;
+    border: none;
+
+
+}
+
+#book:hover {
+    background-color: aquamarine;
+}
