@@ -17,4 +17,82 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
+}
+
+/*Nav Bar*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    background-color: bisque;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+#nav a:hover {
+    color: aqua;
+}
+
+#nav a {
+    padding: 5px;
+}
+
+#name {
+    font-size: 40px;
+}
+
+#aboutus {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    padding: 50px;
+    margin: 50px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#aboutus h1 {
+    font-size: 40px;
+}
+
+#aboutus p {
+    font-size: 30px;
+}
+
+#team {
+    display: flex;
+    flex-direction: column;
+
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#team #theteam {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 50px;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#team h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+}
+
+#theteam .nname {
+    font-size: 25px;
 }
