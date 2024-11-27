@@ -17,7 +17,6 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
 }
 
 /*Nav Bar*/
@@ -44,60 +43,45 @@ html {
     padding: 5px;
 }
 
-#name {
+#nav p {
     font-size: 40px;
 }
 
-#aboutus {
+
+
+form {
     display: flex;
     flex-direction: column;
-
-    justify-content: center;
-    padding: 50px;
-    margin: 50px;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    z-index: 2;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-#aboutus h1 {
-    font-size: 40px;
-}
-
-#aboutus p {
-    font-size: 30px;
-}
-
-#team {
-    display: flex;
-    flex-direction: column;
-
-    color: rgb(255, 255, 255);
-    z-index: 2;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-#team #theteam {
-    display: flex;
     justify-content: space-around;
-    margin: 20px 50px;
+
+    align-items: flex-start;
+
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+    margin-right: 150px;
+    align-items: center;
+    margin-top: 250px;
     color: rgb(255, 255, 255);
-    z-index: 2;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-#team h2 {
+#contact {
     display: flex;
-    justify-content: center;
     font-size: 35px;
+    color: rgb(255, 255, 255);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 200px;
 }
 
-#theteam .nname {
-    font-size: 25px;
-}
 
-.btn {
+
+#submitbtn {
     background-color: bisque;
     color: black;
 }
