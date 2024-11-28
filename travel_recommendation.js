@@ -1,49 +1,39 @@
 const resultsContainer = document.getElementById("results");
+const recommendations = [];
 
-function getData() {
-    fetch("travel_recommendation_api.json")
-        .then(response => response.json())
-        .then(data => {
+async function getData() {
+    const requestDir = "travel_recommendation_api.json";
+    const request = new Request(requestDir);
 
-            console.log(data);
-        })
-        .catch(error => console.error("Error fetching data:", error));
+    const response = await fetch(request);
+    const recommendations = await response.json();
 }
 
-//
-document.getElementById("btnSearch").addEventListener("click", getRec);
 
-function getRec() {
-    document.getElementById("search").value.toLowerCase();
+function search() {
+    const keyword = document.getElementById("btnSearch").value.toLowerCase();
 
+    if ((keyword === "beach") || (keyword === "beaches")) {
+        results = data.beach;
+    }
+    else if ((keyword === "temple") || (keyword === "temples")) {
+        results = data.temple;
+    }
+    else if ((keyword === "country") || (keyword === "countries")) {
+        results = data.country;
+    }
 
-    getData().then(data => {
-        data.filter(item => item.category.includes("keyword"));
-        let results = [];
-
-        if ((keyword === beach) || (keyword === beaches)) {
-            results = data.beach;
-        }
-        else if ((keyword === temple) || (keyword === temples)) {
-            results = data.temple;
-        }
-        else if ((keyword === country) || (keyword === countries)) {
-            results = data.country;
-        }
-        else {
-            resultsContainer.innerHTML = "Please try again.";
-            return;
-        }
-
-        displayResults(results);
-    });
+    displayResults(results);
 }
+
+document.getElementById("btnSearch").addEventListener("click", search());
+
 
 function displayResults(results) {
     resultsContainer.innerHTML = "";
 
     recommendations.forEach(recommendation => {
-        const resultDiv = document.createElement('div');
+        const resultDiv = document.createElement("div");
         resultDiv.innerHTML = `
       <h3>${recommendation.name}</h3>
       <img src="${recommendation.imageUrl}" alt="${recommendation.name}">
@@ -53,15 +43,5 @@ function displayResults(results) {
     });
 
 }
-function clearResults() {
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = '';
-}
-document.getElementById("btnClear").addEventListener('click', clearResults);
 
-
-
-
-
-
-
+getData();
