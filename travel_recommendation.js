@@ -33,7 +33,6 @@ async function search() {
         }
     }); }
     
-    
 
     if (results.length>0) {
         displayResults(results);
@@ -45,12 +44,9 @@ async function search() {
     
 }
 
-
 //Display Results
-
 function displayResults(results) {
-    //resultsContainer.innerHTML = "";
-    
+      
     Homepage.innerHTML="";
     
 
@@ -64,7 +60,6 @@ function displayResults(results) {
         Homepage.appendChild(resultDiv);
     });
 
-    
 
 }
 
