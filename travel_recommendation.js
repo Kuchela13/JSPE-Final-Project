@@ -1,4 +1,6 @@
-const resultsContainer = document.getElementById("results");
+
+const Homepage=document.getElementById("homepage");
+const defaultHP=Homepage.innerHTML;
 
 //Fetch data from JSON file
 async function fetchData() {
@@ -37,7 +39,7 @@ async function search() {
         displayResults(results);
     }
     else {
-        resultsContainer.innerHTML="<p>No recommendations found for the given keyword.<p>";
+        Homepage.innerHTML="<p>No recommendations found for the given keyword.<p>";
     }
     //
     
@@ -47,7 +49,10 @@ async function search() {
 //Display Results
 
 function displayResults(results) {
-    resultsContainer.innerHTML = "";
+    //resultsContainer.innerHTML = "";
+    
+    Homepage.innerHTML="";
+    
 
     results.forEach(result => {
         const resultDiv = document.createElement("div");
@@ -56,14 +61,16 @@ function displayResults(results) {
       <img src="${result.imageUrl}" alt="${result.name}">
       <p>${result.description}</p>
     `;
-        resultsContainer.appendChild(resultDiv);
+        Homepage.appendChild(resultDiv);
     });
+
+    
 
 }
 
 //Clear Results
 function clearResults() {
-    resultsContainer.innerHTML="";
+    DefaultHP.innerHTML=defaultContent;
 }
 
 //Search Button
