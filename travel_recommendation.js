@@ -24,14 +24,14 @@ async function search() {
     else if ((keyword === "temple") || (keyword === "temples")) {
         results = recommendations.temples;
     }
-    else if ((keyword === "country") || (keyword === "countries")) {
-       
-        recommendations.countries.forEach(country => {
-            country.cities.forEach(city => {
-                results.push(city);
-            });
-        });
-    }
+    else if (keyword!=="") {
+     recommendations.countries.forEach(country => {
+        if (country.name.toLowerCase() === keyword) {
+            results = country.cities; // Get cities for the matched country
+        }
+    }); }
+    
+    
 
     if (results.length>0) {
         displayResults(results);
