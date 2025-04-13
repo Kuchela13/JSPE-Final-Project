@@ -1,47 +1,73 @@
 const resultsContainer = document.getElementById("results");
-const recommendations = [];
 
-async function getData() {
+//Fetch data from JSON file
+async function fetchData() {
     const requestDir = "travel_recommendation_api.json";
     const request = new Request(requestDir);
-
+try {
     const response = await fetch(request);
     const recommendations = await response.json();
+    return recommendations;
+} catch (error) {
+    console.log('Error big dawg:', error)
 }
-
-
-function search() {
-    const keyword = document.getElementById("btnSearch").value.toLowerCase();
-
+}
+ 
+//Keyword Searches  
+async function search() {
+    const recommendations= await fetchData();
+    const keyword = document.getElementById("search").value.toLowerCase();
+    let results=[];
     if ((keyword === "beach") || (keyword === "beaches")) {
-        results = data.beach;
+        results = recommendations.beaches;
     }
     else if ((keyword === "temple") || (keyword === "temples")) {
-        results = data.temple;
+        results = recommendations.temples;
     }
     else if ((keyword === "country") || (keyword === "countries")) {
-        results = data.country;
+       
+        recommendations.countries.forEach(country => {
+            country.cities.forEach(city => {
+                results.push(city);
+            });
+        });
     }
 
-    displayResults(results);
+    if (results.length>0) {
+        displayResults(results);
+    }
+    else {
+        resultsContainer.innerHTML="<p>No recommendations found for the given keyword.<p>";
+    }
+    //
+    
 }
 
-document.getElementById("btnSearch").addEventListener("click", search());
 
+//Display Results
 
 function displayResults(results) {
     resultsContainer.innerHTML = "";
 
-    recommendations.forEach(recommendation => {
+    results.forEach(result => {
         const resultDiv = document.createElement("div");
         resultDiv.innerHTML = `
-      <h3>${recommendation.name}</h3>
-      <img src="${recommendation.imageUrl}" alt="${recommendation.name}">
-      <p>${recommendation.description}</p>
+      <h3>${result.name}</h3>
+      <img src="${result.imageUrl}" alt="${result.name}">
+      <p>${result.description}</p>
     `;
         resultsContainer.appendChild(resultDiv);
     });
 
 }
 
-getData();
+//Clear Results
+function clearResults() {
+    resultsContainer.innerHTML="";
+}
+
+//Search Button
+document.getElementById("btnSearch").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+    search(); // Call the search function
+});
